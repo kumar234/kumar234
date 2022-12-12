@@ -10,7 +10,7 @@
 #CMD ["flask", "run"]
 
 FROM node:6
-COPY package-lock.json .
+COPY package.json .
 RUN npm cache clean
 RUN npm install
 RUN winget install nodejs
