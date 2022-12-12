@@ -13,8 +13,8 @@ FROM node:6
 COPY package.json .
 RUN npm cache clean
 RUN npm install
-RUN winget install nodejs
-RUN winget install mysql-server
+RUN apt-get install nodejs
+RUN apt-get install mysql-server
 COPY . .
 RUN mysql -u root -p matrimony < matrimony.sql
 EXPOSE 4201
