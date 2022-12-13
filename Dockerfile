@@ -10,13 +10,10 @@
 #CMD ["flask", "run"]
 
 FROM node:6
-COPY package.json .
+RUN mkdir -p /usr/src/app 
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app
 RUN npm cache clean
 RUN npm install
-RUN apt-get update
-RUN apt-get -y install nodejs
-RUN apt-get -y install mysql-server
 COPY . .
-RUN mysql -u root -p matrimony < matrimony.sql
-EXPOSE 4201
-CMD ["node" , "app.js"]
+CMD ["npm" , "start"]
