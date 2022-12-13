@@ -14,8 +14,8 @@ COPY package.json .
 RUN npm cache clean
 RUN npm install
 RUN apt-get update
-RUN apt-get install nodejs
-RUN apt-get install mysql-server
+RUN apt-get -y install nodejs
+RUN apt-get -y install mysql-server
 COPY . .
 RUN mysql -u root -p matrimony < matrimony.sql
 EXPOSE 4201
